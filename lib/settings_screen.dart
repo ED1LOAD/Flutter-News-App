@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:nisproject/news_list_screen.dart';
 import 'package:provider/provider.dart';
 import 'Theme/theme.dart';
 
@@ -101,10 +102,13 @@ class LanguageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.setLocale(Locale(languageCode));
+        context.setLocale(Locale(languageCode)).then((_) {
+          final state = context.findAncestorStateOfType<NewsListScreenState>();
+          // ignore: invalid_use_of_protected_member
+          state?.setState(() {});
+        });
       },
       child: CircleAvatar(
-        radius: 24,
         backgroundColor: isSelected ? Colors.red : Colors.grey,
         child: Text(
           languageCode.toUpperCase(),
