@@ -6,6 +6,10 @@
     "news_title": "Новости",
     "news_tapbar": "Новости",
     "settings_tapbar": "Настройки",
-    "news_browser": "Поиск в интернете"
+    "news_browser": "Поиск в интернете",
+    "favorites_tab": "Избранное",
+    "favorites_title": "Избранное",
+    "Author": "Автор",
+    "Published At": "Опубликовано в"
   }
   

@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:nisproject/news_list_screen.dart';
+import 'package:nisproject/Screens/news_listScreen.dart';
+import 'package:nisproject/Theme/theme.dart';
 import 'package:provider/provider.dart';
-import 'Theme/theme.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

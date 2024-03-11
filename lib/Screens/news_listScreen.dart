@@ -1,10 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nisproject/api/news_api_client.dart';
-import 'package:nisproject/model/article.dart';
-import 'package:nisproject/news_detail_screen.dart';
-import 'settings_screen.dart';
+import 'package:nisproject/Data/news_article.dart';
+import 'package:nisproject/Domain/news_api.dart';
+import 'package:nisproject/Screens/news_detailScreen.dart';
+import 'package:nisproject/Screens/news_favoriteScreen.dart';
+import 'package:nisproject/Screens/setting_screen.dart';
 
 class NewsListScreen extends StatefulWidget {
   const NewsListScreen({super.key});
@@ -65,13 +66,27 @@ class NewsListScreenState extends State<NewsListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> _screens = [
+      buildNewsList(),
+      const FavoritesScreen(),
+      const SettingsScreen(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-            selectedIndex == 0 ? 'news_title'.tr() : 'settings_title'.tr()),
+          selectedIndex == 0
+              ? 'news_title'.tr()
+              : selectedIndex == 1
+                  ? 'favorites_title'.tr()
+                  : 'settings_title'.tr(),
+        ),
       ),
-      body: selectedIndex == 0 ? buildNewsList() : const SettingsScreen(),
+      body: IndexedStack(
+        index: selectedIndex,
+        children: _screens,
+      ),
       bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
@@ -144,6 +159,10 @@ class NewsListScreenState extends State<NewsListScreen> {
             FontAwesomeIcons.newspaper,
           ),
           label: 'news_tapbar'.tr(),
+        ),
+        BottomNavigationBarItem(
+          icon: const FaIcon(FontAwesomeIcons.heart),
+          label: 'favorites_tab'.tr(),
         ),
         BottomNavigationBarItem(
           icon: const FaIcon(
