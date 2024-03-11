@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nisproject/BLoC/favoritesState.dart';
 import 'package:nisproject/Data/favorite_news.dart';
-import 'package:nisproject/Screens/news_detailScreen.dart';
+
+import 'news_detailScreen.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({Key? key}) : super(key: key);

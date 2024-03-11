@@ -1,4 +1,4 @@
-import 'package:nisproject/Data/news_article.dart';
+import '../Data/news_article.dart';
 
 abstract class FavoritesState {}
 

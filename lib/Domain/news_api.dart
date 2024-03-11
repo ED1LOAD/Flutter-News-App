@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:nisproject/Data/news_article.dart';
+
+import '../Data/news_article.dart';
 
 class NewsApiClient {
   static const String apiKey = 'd22d857cdac84522b5b8e3ec533ff060';

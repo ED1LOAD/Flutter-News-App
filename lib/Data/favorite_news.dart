@@ -2,9 +2,10 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nisproject/BLoC/favoritesEvent.dart';
 import 'package:nisproject/BLoC/favoritesState.dart';
-import 'package:nisproject/Data/news_article.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+
+import 'news_article.dart';
 
 class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   FavoritesBloc() : super(FavoritesLoading()) {
